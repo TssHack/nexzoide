@@ -1,0 +1,72 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Build with Gradle for arm32
+      run: ./gradlew assembleArm32Debug
+
+    - name: Build with Gradle for arm64
+      run: ./gradlew assembleArm64Debug
+
+    - name: Upload arm32 APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-debug-arm32
+        path: app/build/outputs/apk/arm32/debug/app-arm32-debug.apk
+        
+    - name: Upload arm64 APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-debug-arm64
+        path: app/build/outputs/apk/arm64/debug/app-arm64-debug.apk
+
+    - name: Build with Gradle for arm32 release
+      run: ./gradlew assembleArm32Release
+
+    - name: Build with Gradle for arm64 release
+      run: ./gradlew assembleArm64Release
+
+    - name: Upload arm32 Release APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-release-arm32
+        path: app/build/outputs/apk/arm32/release/app-arm32-release.apk
+
+    - name: Upload arm64 Release APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-release-arm64
+        path: app/build/outputs/apk/arm64/release/app-arm64-release.apk
+
+    - name: Release APKs on GitHub
+      if: github.event_name == 'release'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          app/build/outputs/apk/arm32/release/app-arm32-release.apk
+          app/build/outputs/apk/arm64/release/app-arm64-release.apk
+      env:
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}

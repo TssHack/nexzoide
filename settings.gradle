@@ -1,0 +1,37 @@
+pluginManagement {
+  repositories {
+    gradlePluginPortal()
+    google()
+    mavenCentral() 
+    gradlePluginPortal()
+  }
+}
+// ehsan
+dependencyResolutionManagement {
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local' }
+   
+  }
+} 
+
+rootProject.name = "Nexzo IDE"
+
+include(":app")
+
+include(":android-tools")
+include(":Plugin")
+include(":pl-codecomment")
+include(":jgit")
+include(":eclipse-standalone")
+include(":ui-designer")
+include(":vectormaster")
+include(":webview")
+include(":datautils")
+include(":prddownloader")
+include(":prograsssheetlib")
+include(":fuzzysearch")
