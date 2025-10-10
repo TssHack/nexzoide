@@ -26,7 +26,7 @@ public class SvgStoreFragment extends Fragment {
   public void onViewCreated(View arg0, Bundle arg1) {
     super.onViewCreated(arg0, arg1);
     // TODO: Implement this method
-    view.setText("Soon to version 2.0.5");
+    view.setText("Soon to version 2");
     view.setGravity(Gravity.CENTER);
   }
 }
