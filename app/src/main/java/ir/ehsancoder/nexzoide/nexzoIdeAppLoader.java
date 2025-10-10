@@ -153,7 +153,7 @@ public class nexzoIdeAppLoader extends Application {
     try {
       PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), 0);
       String v = info.versionName;
-      DataUtil.showMessage(getApplicationContext(), "Welcom to nexzo ide " + v);
+      DataUtil.showMessage(getApplicationContext(), "Welcom To Nexzo IDE " + v);
     } catch (PackageManager.NameNotFoundException err) {
 
     }

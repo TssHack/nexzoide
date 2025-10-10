@@ -155,7 +155,7 @@ public class ThemeFragment extends Fragment {
 
     previewBinding.fab1.setVisibility(View.INVISIBLE);
     previewBinding.fab2.setVisibility(View.INVISIBLE);
-    previewBinding.fab3.setText("ذخیره تم");
+    previewBinding.fab3.setText("Save Theme");
 
     if (themeData.containsKey(imageKey)) {
       Glide.with(previewBinding.backgroundImage.getContext())
