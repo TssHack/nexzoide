@@ -1,66 +1,62 @@
 package ir.ehsancoder.nexzoide.activities;
 
-import ir.ehsancoder.nexzoide.R;
-import ir.ehsancoder.nexzoide.RequestNetwork;
-import ir.ehsancoder.nexzoide.RequestNetworkController;
-import ir.ehsancoder.nexzoide.adapter.DevAd;
-import ir.ehsancoder.nexzoide.glidecompat.GlideCompat;
-
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.*;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.activity.OnBackPressedCallback;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import ir.ehsancoder.nexzoide.R;
+import ir.ehsancoder.nexzoide.RequestNetwork;
+import ir.ehsancoder.nexzoide.RequestNetworkController;
+import ir.ehsancoder.nexzoide.adapter.DevAd;
+import ir.ehsancoder.nexzoide.glidecompat.GlideCompat;
 
 public class AboutActivity extends BaseCompat {
 
-    // 🧱 UI Elements
-    private TextView tvName, tvBio, tvVersion;
-    private RecyclerView rvDevelopers;
+    private static final String TAG = "AboutActivity";
+    private static final String API_URL = "https://api.github.com/users/tsshack";
+    private static final String DEV_LIST_URL = "https://api.github.com/repos/tsshack/nexzoide/contributors";
+
+    private TextView tvName, tvBio;
     private ImageView appIcon;
-    private ProgressBar progressBar;
-    private LinearLayout linksLayout;
+    private RecyclerView rvDevelopers;
+    private DevAd devAdapter;
+    private List<HashMap<String, Object>> devList = new ArrayList<>();
 
-    // 🌐 Network
-    private RequestNetwork mainRequest, contributorsRequest;
-    private RequestNetwork.RequestListener mainListener, contributorsListener;
-    private List<HashMap<String, Object>> contributors = new ArrayList<>();
-
-    // ⚙️ API URLs
-    private static final String API_USER = "https://api.github.com/users/tsshack";
-    private static final String API_CONTRIB = "https://api.github.com/repos/tsshack/nexzoide/contributors";
+    private RequestNetwork userRequest, devRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);
+
         initViews();
         setupListeners();
-        fetchData();
+        setupSocialLinks(); // 🔹 اضافه شده
+        loadData();
     }
 
     private void initViews() {
         appIcon = findViewById(R.id.icon_glide_about);
         tvName = findViewById(R.id.tv_about_name);
         tvBio = findViewById(R.id.tv_about_bio);
-        tvVersion = findViewById(R.id.tv_about_version);
         rvDevelopers = findViewById(R.id.rv_about_dev);
-        progressBar = findViewById(R.id.progress_about);
-        linksLayout = findViewById(R.id.links_layout);
 
         GlideCompat.GlideNormal(appIcon, R.mipmap.nexzoicon);
-        tvVersion.setText("Version " + getAppVersion());
+        rvDevelopers.setLayoutManager(new GridLayoutManager(this, 2));
     }
 
     private void setupListeners() {
@@ -68,102 +64,87 @@ public class AboutActivity extends BaseCompat {
             @Override
             public void handleOnBackPressed() {
                 finish();
-                Log.i("AboutActivity", "Back pressed");
+                Log.i(TAG, "Back pressed");
             }
         });
-
-        // 📎 Developer Links
-        findViewById(R.id.btn_github).setOnClickListener(v -> openUrl("https://github.com/tsshack/nexzoide"));
-        findViewById(R.id.btn_telegram).setOnClickListener(v -> openUrl("https://t.me/tsshack"));
-        findViewById(R.id.btn_email).setOnClickListener(v -> sendEmail("tsshack@gmail.com"));
-        findViewById(R.id.btn_website).setOnClickListener(v -> openUrl("https://nexzoide.ir"));
     }
 
-    private void fetchData() {
-        showLoading(true);
+    // 🟢 تنظیم کلیک برای لینک‌های تلگرام و سایت
+    private void setupSocialLinks() {
+        findViewById(R.id.link_telegram).setOnClickListener(v -> {
+            openUrl("https://t.me/nexzoteam");
+        });
 
-        mainRequest = new RequestNetwork(this);
-        contributorsRequest = new RequestNetwork(this);
-
-        mainListener = new RequestNetwork.RequestListener() {
-            @Override
-            public void onResponse(String tag, String response, HashMap<String, Object> params) {
-                showLoading(false);
-                parseUserInfo(response);
-            }
-
-            @Override
-            public void onErrorResponse(String tag, String message) {
-                showLoading(false);
-                showError("Failed to fetch developer info!");
-            }
-        };
-
-        contributorsListener = new RequestNetwork.RequestListener() {
-            @Override
-            public void onResponse(String tag, String response, HashMap<String, Object> params) {
-                contributors = new Gson().fromJson(response,
-                        new TypeToken<List<HashMap<String, Object>>>(){}.getType());
-                setupRecycler();
-            }
-
-            @Override
-            public void onErrorResponse(String tag, String message) {
-                showError("Failed to fetch contributors list!");
-            }
-        };
-
-        mainRequest.startRequestNetwork(RequestNetworkController.GET, API_USER, "user", mainListener);
-        contributorsRequest.startRequestNetwork(RequestNetworkController.GET, API_CONTRIB, "contributors", contributorsListener);
+        findViewById(R.id.link_website).setOnClickListener(v -> {
+            openUrl("https://nexzo.ir");
+        });
     }
 
-    private void parseUserInfo(String input) {
+    private void loadData() {
+        userRequest = new RequestNetwork(this);
+        devRequest = new RequestNetwork(this);
+
+        userRequest.startRequestNetwork(RequestNetworkController.GET, API_URL, "user_info", userCallback);
+        devRequest.startRequestNetwork(RequestNetworkController.GET, DEV_LIST_URL, "dev_list", devCallback);
+    }
+
+    private final RequestNetwork.RequestListener devCallback = new RequestNetwork.RequestListener() {
+        @Override
+        public void onResponse(String tag, String response, HashMap<String, Object> params) {
+            devList = new Gson().fromJson(response, new TypeToken<List<HashMap<String, Object>>>(){}.getType());
+            devAdapter = new DevAd(devList, (v, c) -> {});
+            rvDevelopers.setAdapter(devAdapter);
+        }
+
+        @Override
+        public void onErrorResponse(String tag, String message) {}
+    };
+
+    private final RequestNetwork.RequestListener userCallback = new RequestNetwork.RequestListener() {
+        @Override
+        public void onResponse(String tag, String response, HashMap<String, Object> params) {
+            updateUserInfo(response);
+        }
+
+        @Override
+        public void onErrorResponse(String tag, String message) {}
+    };
+
+    private void updateUserInfo(String json) {
         try {
-            JSONObject user = new JSONObject(input);
-            String avatar = user.getString("avatar_url");
-            String name = user.optString("name", user.getString("login"));
-            String bio = user.optString("bio", "Developer of Nexzoide 💻");
+            JSONObject user = new JSONObject(json);
+            String avatarUrl = user.getString("avatar_url");
+            String username = user.getString("login");
+            String bio = user.optString("bio", "Developer of Nexzo IDE");
 
-            Glide.with(getApplicationContext()).load(Uri.parse(avatar)).circleCrop().into(appIcon);
-            tvName.setText(name);
+            // Load image (circle)
+            Glide.with(this)
+                    .load(Uri.parse(avatarUrl))
+                    .circleCrop()
+                    .into(appIcon);
+
+            // Animate name fade-in
+            tvName.setText(username);
+            animateFade(tvName);
+
+            // Animate bio
             tvBio.setText(bio);
+            animateFade(tvBio);
 
-        } catch (JSONException e) {
-            showError("Error parsing user data!");
+        } catch (Exception e) {
+            Log.e(TAG, "Error parsing user info: " + e.getMessage());
         }
     }
 
-    private void setupRecycler() {
-        DevAd adapter = new DevAd(contributors, (v, c) -> {});
-        rvDevelopers.setLayoutManager(new GridLayoutManager(this, 2));
-        rvDevelopers.setAdapter(adapter);
+    private void animateFade(TextView view) {
+        view.setAlpha(0f);
+        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f);
+        fadeIn.setDuration(700);
+        fadeIn.setInterpolator(new DecelerateInterpolator());
+        fadeIn.start();
     }
 
     private void openUrl(String link) {
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
-        startActivity(i);
-    }
-
-    private void sendEmail(String email) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + email));
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Contact Nexzoide Developer");
-        startActivity(Intent.createChooser(intent, "Send email using..."));
-    }
-
-    private void showLoading(boolean show) {
-        progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
-        rvDevelopers.setVisibility(show ? View.GONE : View.VISIBLE);
-    }
-
-    private void showError(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
-
-    private String getAppVersion() {
-        try {
-            return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
-        } catch (Exception e) {
-            return "Unknown";
-        }
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
     }
 }

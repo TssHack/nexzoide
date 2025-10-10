@@ -5,161 +5,198 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp"
-    android:background="?android:attr/windowBackground"
-    tools:context=".ui.about.AboutActivity">
+    android:fillViewport="true"
+    android:background="?android:attr/colorBackground">
 
     <LinearLayout
+        android:id="@+id/rootlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:padding="12dp">
 
-        <!-- App Info Card -->
+        <!-- 🟢 کارت اطلاعات توسعه‌دهنده اصلی -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:radius="12dp"
+            android:elevation="3dp"
             app:cardCornerRadius="16dp"
-            app:cardElevation="4dp"
-            app:strokeColor="?attr/colorPrimary"
-            app:strokeWidth="1dp">
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
                 android:orientation="vertical"
+                android:gravity="center_horizontal"
                 android:padding="12dp">
 
                 <ImageView
-                    android:id="@+id/showappicon"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:id="@+id/icon_glide_about"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginBottom="8dp"
                     android:src="@drawable/app_icon"
-                    android:scaleType="centerInside"
-                    android:contentDescription="App Icon" />
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/circle_bg"
+                    android:padding="3dp"/>
 
                 <TextView
                     android:id="@+id/tv_about_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nexzo IDE"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:text="Nexzo Team"
+                    android:textSize="18sp"
                     android:textColor="?attr/colorPrimary"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold"
+                    android:padding="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_about_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Developer of Nexzo IDE"
+                    android:textSize="14sp"
+                    android:textColor="#808080"
+                    android:gravity="center"
+                    android:padding="2dp"/>
 
                 <TextView
                     android:id="@+id/textview2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Version 1.0.0"
-                    android:textSize="14sp"
-                    android:textColor="#4CAF50" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="A fast and powerful mobile IDE for modern developers."
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:gravity="center"
-                    android:layout_marginTop="4dp"
-                    android:textSize="14sp" />
+                    android:text="App version 1.0.0"
+                    android:textColor="#4CAF50"
+                    android:textSize="13sp"
+                    android:padding="4dp"
+                    android:gravity="center"/>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Team Section -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="3dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Development Team"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="?attr/colorPrimary" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_team"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Social Links Section -->
+        <!-- 🟣 کارت لینک‌های اجتماعی (تلگرام و سایت) -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardsoclise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:radius="12dp"
+            android:elevation="3dp"
             app:cardCornerRadius="16dp"
-            app:cardElevation="3dp">
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="12dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Social Media"
-                    android:textStyle="bold"
+                    android:text="Social Links"
                     android:textSize="16sp"
-                    android:textColor="?attr/colorPrimary" />
+                    android:textColor="?attr/colorPrimary"
+                    android:textStyle="bold"
+                    android:paddingBottom="6dp"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_socias"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp" />
+                    android:orientation="horizontal"
+                    android:gravity="center">
 
+                    <!-- 🔗 لینک تلگرام -->
+                    <LinearLayout
+                        android:id="@+id/link_telegram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_telegram"
+                            android:contentDescription="Telegram"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@nexzoteam"
+                            android:textSize="13sp"
+                            android:textColor="#2196F3"
+                            android:paddingTop="4dp"/>
+
+                    </LinearLayout>
+
+                    <!-- 🔗 لینک وب‌سایت -->
+                    <LinearLayout
+                        android:id="@+id/link_website"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_web"
+                            android:contentDescription="Website"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="nexzo.ir"
+                            android:textSize="13sp"
+                            android:textColor="#4CAF50"
+                            android:paddingTop="4dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Credits Section -->
+
+        <!-- 🔵 کارت لیست توسعه‌دهندگان -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:radius="12dp"
+            android:elevation="3dp"
             app:cardCornerRadius="16dp"
-            app:cardElevation="3dp">
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="8dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Credits"
-                    android:textStyle="bold"
+                    android:text="Contributors"
                     android:textSize="16sp"
-                    android:textColor="?attr/colorPrimary" />
+                    android:textColor="?attr/colorPrimary"
+                    android:textStyle="bold"
+                    android:paddingBottom="4dp"/>
 
-                <TextView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_about_dev"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Developed by Ehsan Fazli\nDesign by Ali Beigi (Nexel)\nProject Managed by Fatemeh Faridi"
-                    android:textSize="14sp"
-                    android:textColor="?android:attr/textColorPrimary" />
+                    android:padding="4dp"/>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
