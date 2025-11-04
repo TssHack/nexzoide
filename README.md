@@ -19,10 +19,9 @@
 ### App Screenshots
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/tsshack/Nexzoide/refs/heads/main/images/img1.jpg" alt="Screenshot 1" style="width: 25%; height: auto; margin: 5px; border-radius: 9px;">
-  <img src="https://raw.githubusercontent.com/tsshack/Nexzoide/refs/heads/main/images/img2.jpg" alt="Screenshot 2" style="width: 25%; height: auto; margin: 5px; border-radius: 9px;">
-  <img src="https://raw.githubusercontent.com/tsshack/Nexzoide/refs/heads/main/images/img3.jpg" alt="Screenshot 3" style="width: 25%; height: auto; margin: 5px; border-radius: 9px;">
-  <img src="https://raw.githubusercontent.com/tsshack/Nexzoide/refs/heads/main/images/img4.jpg" alt="Screenshot 4" style="width: 25%; height: auto; margin: 5px; border-radius: 9px;">
+  <img src="https://raw.githubusercontent.com/tsshack/Nexzoide/refs/heads/main/images/img1.png" alt="Screenshot 1" style="width: 25%; height: auto; margin: 5px; border-radius: 9px;">
+  <img src="https://raw.githubusercontent.com/tsshack/Nexzoide/refs/heads/main/images/img2.png" alt="Screenshot 2" style="width: 25%; height: auto; margin: 5px; border-radius: 9px;">
+  <img src="https://raw.githubusercontent.com/tsshack/Nexzoide/refs/heads/main/images/img3.png" alt="Screenshot 3" style="width: 25%; height: auto; margin: 5px; border-radius: 9px;">
 </div>
 
 ---
