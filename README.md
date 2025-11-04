@@ -16,6 +16,11 @@
 
 ---
 
+## App WEBSITE
+-[CLICK](https://ide.nexzo.ir)
+
+---
+
 ### App Screenshots
 
 <div align="center">
@@ -284,3 +289,5 @@ Nexzo IDE offers a variety of keyboard shortcuts for physical keyboards from Fil
 
 ## Debugging/Level Colors
 - `breaklevel1-8`: Colors for different breakpoint levels like in (`{}()[]`)
+## Developer Info
+- [Ehsan Fazli](https://ehsanjs.ir)
