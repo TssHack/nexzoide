@@ -1,4 +1,3 @@
-<!-- Created with Ghost ide -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
   x="0%"
@@ -7,6 +6,7 @@
   height="100%"
   viewBox="0 0 24.0 24.0">
   <defs>
+    <!-- Enhanced gradients with smoother transitions -->
     <linearGradient
       id="fillGrad0"
       x1="18.806%"
@@ -14,24 +14,25 @@
       x2="73.604%"
       y2="76.075%">
       <stop
-        style="stop-color:rgb(0,255,253); stop-opacity:1.000"
+        style="stop-color:#00FFFF; stop-opacity:1.000"
         offset="0.000%">
         <animate
           attributeName="stop-color"
-          dur="3s"
+          dur="4s"
           repeatCount="indefinite"
-          values="rgb(0,255,253);rgb(255,119,0);rgb(0,255,253)" />
+          values="#00FFFF;#FF7700;#00FFFF" />
       </stop>
       <stop
-        style="stop-color:rgb(255,119,0); stop-opacity:1.000"
+        style="stop-color:#FF7700; stop-opacity:1.000"
         offset="100.000%">
         <animate
           attributeName="stop-color"
-          dur="3s"
+          dur="4s"
           repeatCount="indefinite"
-          values="rgb(255,119,0);rgb(0,255,253);rgb(255,119,0)" />
+          values="#FF7700;#00FFFF;#FF7700" />
       </stop>
     </linearGradient>
+    
     <linearGradient
       id="fillGrad1"
       x1="19.224%"
@@ -39,33 +40,34 @@
       x2="81.534%"
       y2="86.270%">
       <stop
-        style="stop-color:rgb(0,148,255); stop-opacity:1.000"
+        style="stop-color:#0094FF; stop-opacity:1.000"
         offset="0.000%">
         <animate
           attributeName="stop-color"
-          dur="4s"
+          dur="5s"
           repeatCount="indefinite"
-          values="rgb(0,148,255);rgb(255,0,167);rgb(201,0,255);rgb(0,148,255)" />
+          values="#0094FF;#FF00A7;#C900FF;#0094FF" />
       </stop>
       <stop
-        style="stop-color:rgb(255,0,167); stop-opacity:1.000"
+        style="stop-color:#FF00A7; stop-opacity:1.000"
         offset="56.939%">
         <animate
           attributeName="stop-color"
-          dur="4s"
+          dur="5s"
           repeatCount="indefinite"
-          values="rgb(255,0,167);rgb(201,0,255);rgb(0,148,255);rgb(255,0,167)" />
+          values="#FF00A7;#C900FF;#0094FF;#FF00A7" />
       </stop>
       <stop
-        style="stop-color:rgb(201,0,255); stop-opacity:1.000"
+        style="stop-color:#C900FF; stop-opacity:1.000"
         offset="100.000%">
         <animate
           attributeName="stop-color"
-          dur="4s"
+          dur="5s"
           repeatCount="indefinite"
-          values="rgb(201,0,255);rgb(0,148,255);rgb(255,0,167);rgb(201,0,255)" />
+          values="#C900FF;#0094FF;#FF00A7;#C900FF" />
       </stop>
     </linearGradient>
+    
     <linearGradient
       id="fillGrad2"
       x1="18.806%"
@@ -73,24 +75,25 @@
       x2="73.604%"
       y2="76.075%">
       <stop
-        style="stop-color:rgb(0,186,255); stop-opacity:1.000"
+        style="stop-color:#00BAFF; stop-opacity:1.000"
         offset="0.000%">
         <animate
           attributeName="stop-color"
-          dur="3s"
+          dur="3.5s"
           repeatCount="indefinite"
-          values="rgb(0,186,255);rgb(0,255,67);rgb(0,186,255)" />
+          values="#00BAFF;#00FF43;#00BAFF" />
       </stop>
       <stop
-        style="stop-color:rgb(0,255,67); stop-opacity:1.000"
+        style="stop-color:#00FF43; stop-opacity:1.000"
         offset="100.000%">
         <animate
           attributeName="stop-color"
-          dur="3s"
+          dur="3.5s"
           repeatCount="indefinite"
-          values="rgb(0,255,67);rgb(0,186,255);rgb(0,255,67)" />
+          values="#00FF43;#00BAFF;#00FF43" />
       </stop>
     </linearGradient>
+    
     <linearGradient
       id="fillGrad3"
       x1="0%"
@@ -98,127 +101,104 @@
       x2="100%"
       y2="100%">
       <stop
-        style="stop-color:rgb(255,50,150); stop-opacity:1.000"
+        style="stop-color:#FF3296; stop-opacity:1.000"
         offset="0.000%">
         <animate
           attributeName="stop-color"
-          dur="2.5s"
+          dur="3s"
           repeatCount="indefinite"
-          values="rgb(255,50,150);rgb(0,200,255);rgb(150,50,255);rgb(255,50,150)" />
+          values="#FF3296;#00C8FF;#9632FF;#FF3296" />
       </stop>
       <stop
-        style="stop-color:rgb(0,200,255); stop-opacity:1.000"
+        style="stop-color:#00C8FF; stop-opacity:1.000"
         offset="50.000%">
         <animate
           attributeName="stop-color"
-          dur="2.5s"
-          repeatCount="indefinite"
-          values="rgb(0,200,255);rgb(150,50,255);rgb(255,50,150);rgb(0,200,255)" />
-      </stop>
-      <stop
-        style="stop-color:rgb(150,50,255); stop-opacity:1.000"
-        offset="100.000%">
-        <animate
-          attributeName="stop-color"
-          dur="2.5s"
-          repeatCount="indefinite"
-          values="rgb(150,50,255);rgb(255,50,150);rgb(0,200,255);rgb(150,50,255)" />
-      </stop>
-    </linearGradient>
-    <linearGradient
-      id="fillGrad4"
-      x1="1.544%"
-      y1="27.541%"
-      x2="102.827%"
-      y2="83.847%">
-      <stop
-        style="stop-color:rgb(0,255,198); stop-opacity:1.000"
-        offset="0.000%">
-        <animate
-          attributeName="stop-color"
           dur="3s"
           repeatCount="indefinite"
-          values="rgb(0,255,198);rgb(0,223,255);rgb(0,255,198)" />
+          values="#00C8FF;#9632FF;#FF3296;#00C8FF" />
       </stop>
       <stop
-        style="stop-color:rgb(0,223,255); stop-opacity:1.000"
+        style="stop-color:#9632FF; stop-opacity:1.000"
         offset="100.000%">
         <animate
           attributeName="stop-color"
           dur="3s"
           repeatCount="indefinite"
-          values="rgb(0,223,255);rgb(0,255,198);rgb(0,223,255)" />
+          values="#9632FF;#FF3296;#00C8FF;#9632FF" />
       </stop>
     </linearGradient>
+    
+    <!-- New gradient for the text -->
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#92fff0;stop-opacity:1">
+        <animate attributeName="stop-color" dur="4s" repeatCount="indefinite" values="#92fff0;#ff9af0;#92fff0" />
+      </stop>
+      <stop offset="100%" style="stop-color:#ff9af0;stop-opacity:1">
+        <animate attributeName="stop-color" dur="4s" repeatCount="indefinite" values="#ff9af0;#92fff0;#ff9af0" />
+      </stop>
+    </linearGradient>
+    
+    <!-- Glow effect filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
+  
+  <!-- Background shape with enhanced gradient -->
   <path
     fill="url(#fillGrad0)"
-    stroke="#000000"
-    stroke-width="0.24"
-    stroke-opacity="0.000"
-    fill-opacity="1.0"
+    stroke="none"
+    fill-opacity="0.8"
     d="M 5.14,3.98 L 18.45,3.98 A 1.53 1.53 0 0 1 19.98,5.51 L 19.98,18.64 A 1.53 1.53 0 0 1 18.45,20.17 L 5.14,20.17 A 1.53 1.53 0 0 1 3.62,18.64 L 3.62,5.51 A 1.53 1.53 0 0 1 5.14,3.98 z"
     transform="rotate(-336.10 11.80 12.07)"
-    fill-rule="nonzero"
-    stroke-linecap="square"
-    stroke-linejoin="miter" />
+    filter="url(#glow)" />
+  
+  <!-- Second layer with different gradient -->
   <path
     fill="url(#fillGrad1)"
-    stroke="#000000"
-    stroke-width="0.24"
-    stroke-opacity="0.000"
-    fill-opacity="1.0"
+    stroke="none"
+    fill-opacity="0.7"
     d="M 5.63,3.83 L 18.68,3.83 A 2.07 2.07 0 0 1 20.75,5.90 L 20.75,17.22 A 2.07 2.07 0 0 1 18.68,19.29 L 5.63,19.29 A 2.07 2.07 0 0 1 3.56,17.22 L 3.56,5.90 A 2.07 2.07 0 0 1 5.63,3.83 z"
-    transform="rotate(-26.75 12.16 11.56)"
-    fill-rule="nonzero"
-    stroke-linecap="square"
-    stroke-linejoin="miter" />
+    transform="rotate(-26.75 12.16 11.56)" />
+  
+  <!-- Third layer with enhanced gradient -->
   <path
     fill="url(#fillGrad2)"
-    stroke="#000000"
-    stroke-width="0.24"
-    stroke-opacity="0.000"
-    fill-opacity="1.0"
+    stroke="none"
+    fill-opacity="0.6"
     d="M 5.43,4.33 L 17.54,4.33 A 1.70 1.70 0 0 1 19.24,6.02 L 19.24,17.84 A 1.70 1.70 0 0 1 17.54,19.53 L 5.43,19.53 A 1.70 1.70 0 0 1 3.73,17.84 L 3.73,6.02 A 1.70 1.70 0 0 1 5.43,4.33 z"
-    transform="rotate(-350.48 11.49 11.93)"
-    fill-rule="nonzero"
-    stroke-linecap="square"
-    stroke-linejoin="miter" />
+    transform="rotate(-350.48 11.49 11.93)" />
+  
+  <!-- Central display area with subtle gradient -->
   <path
-    fill="#000"
-    stroke="#000000"
-    stroke-width="0.24"
-    stroke-opacity="0.000"
-    fill-opacity="1.000"
-    d="M 6.16,7.35 L 16.65,7.46 A 1.07 1.07 0 0 1 17.70,8.55 L 17.63,14.96 A 1.07 1.07 0 0 1 16.55,16.01 L 6.06,15.90 A 1.07 1.07 0 0 1 5.01,14.81 L 5.08,8.40 A 1.07 1.07 0 0 1 6.16,7.35 z"
-    fill-rule="nonzero"
-    stroke-linecap="square"
-    stroke-linejoin="miter" />
+    fill="url(#fillGrad3)"
+    stroke="none"
+    fill-opacity="0.5"
+    d="M 6.16,7.35 L 16.65,7.46 A 1.07 1.07 0 0 1 17.70,8.55 L 17.63,14.96 A 1.07 1.07 0 0 1 16.55,16.01 L 6.06,15.90 A 1.07 1.07 0 0 1 5.01,14.81 L 5.08,8.40 A 1.07 1.07 0 0 1 6.16,7.35 z" />
+  
+  <!-- Main text with animated gradient -->
   <text
-    stroke="#000000"
-    stroke-width="0.24"
-    stroke-opacity="0.000"
-    fill-opacity="0"
-    transform="rotate(-0.0 10.961351 11.778305) scale(1.1126215 1.0)"
-    font-family="default"
-    font-size="4.6908407"
+    x="12"
+    y="13"
+    text-anchor="middle"
+    font-family="Arial, sans-serif"
+    font-size="4.2"
     font-weight="bold"
-    text-anchor="start">
-    <tspan
-      x="6.1558237"
-      y="13.684304">GSI</tspan>
-  </text>
-  <text
-    fill="#92fff0"
-    stroke-width="0"
-    fill-opacity="1.0"
-    transform="rotate(-0.0 10.961351 11.778305) scale(1.1126215 1.0)"
-    font-family="default"
-    font-size="4.6908407"
-    font-weight="bold"
-    text-anchor="start">
-    <tspan
-      x="7.198202"
-      y="13.684304">GSI</tspan>
-  </text>
+    fill="url(#textGradient)"
+    filter="url(#glow)">Nexzo IDE</text>
+  
+  <!-- Subtle reflection effect -->
+  <rect
+    x="6"
+    y="15"
+    width="12"
+    height="1.5"
+    fill="url(#textGradient)"
+    opacity="0.3"
+    transform="skewX(-15)" />
 </svg>
